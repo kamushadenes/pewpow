@@ -1,0 +1,293 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  overflow: hidden;
+  font-family: "Oswald", "Open Sans", sans-serif;
+}
+
+
+
+#datatables {
+	background-color: black;
+}
+
+#datatables h1 {
+	background-color: #555;
+	font-size: 16px;
+	border-color: #555;
+	font-weight: bold;
+	color: white;
+	padding: 10px 15px;
+}
+
+
+#datatables #attacktype {
+  font-size:10px;
+  position:absolute;
+  width:200px;
+  height:220px;
+  color:white;
+  overflow-y: auto;
+  left: 320px;
+  bottom: 10px;
+  overflow: hidden;
+}
+
+
+#datatables #attacktarget {
+  font-size:10px;
+  position:absolute;
+  width:300px;
+  height:220px;
+  color:white;
+  overflow-y: auto;
+  left: 530px;
+  bottom: 10px;
+  overflow: hidden;
+}
+
+#datatables #attackorigin {
+  font-size:10px;
+  position:absolute;
+  width:300px;
+  height:220px;
+  color:white;
+  overflow-y: auto;
+  left: 10px;
+  bottom: 10px;
+  overflow: hidden;
+}
+
+#logo {
+    position: absolute;
+    left: 15px;
+    top: 6px;
+    width: 100px;
+    z-index: 100;
+}
+
+#loading {
+    position: absolute;
+    right: 4em;
+    bottom: 1em;
+}
+
+#info {
+    position: absolute;
+    right: 20em;
+    top: 1em;
+}
+
+.data {
+    width: 180px;
+}
+
+.data table tr {
+    line-height: 18px;
+    text-align: left;
+}
+
+.data table td,
+.data table th {
+    font-size: 12px;
+}
+
+.data table th {
+    font-size: 13px;
+    font-family: "Open Sans Bold", "Oswald", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.data table th [class^="icon-"], .data table th [class*=" icon-"] {
+    font-size: 16px;
+}
+
+.data table td span.numeric {
+    font-size: 10px;
+    font-family: "Open Sans Light", "Oswald", sans-serif;
+    font-weight: 300;
+}
+
+.data .flag {
+    margin-right: 20px;
+    height: 1.0em;
+}
+
+.data .numeric {
+    margin-right: 10px;
+}
+
+
+.data .icon-number {
+    margin-right: 8px;
+}
+
+.data colgroup .bar-col { width: 0; }
+.data colgroup .total-count { width: 2.6em; }
+.data colgroup .data-label-small { width: 1.6em; }
+.data colgroup .data-label { width: 10em; }
+.data colgroup .port-label { width: 2.8em; }
+
+
+.data tr.row:hover {
+    background-color: #0c2b4a;
+}
+
+.data table .bar {
+    position: absolute;
+    height: 20px;
+    margin-top: -10px;
+    background-color: #0c2b4a;
+    z-index: -1;
+    border-radius: 3px;
+    max-width: 98%;
+}
+
+.data table tr td:nth-child(2),
+.data table tr th:nth-child(2) {
+    text-align: right;
+    padding-right: 0.4em;
+}
+
+
+#console table {
+    width: 100%;
+    font-size: 10px;
+    font-family: "Open Sans Normal", "Oswald", sans-serif;
+    font-weight: 400;
+    line-height: 12px;
+    border-collapse: collapse;
+}
+
+#console table td,
+#console table th {
+    text-shadow: none;
+    padding-right: 20px;
+}
+
+#console table td:last-child,
+#console table th:last-child {
+    padding-right: 0px;
+}
+
+#console table tr.first-level {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+#console table tr.second-level {
+    font-size: 12px;
+    font-family: "Open Sans Bold", "Oswald", sans-serif;
+    font-weight: 700;
+    line-height: 12px;
+    text-align: left;
+    padding-bottom: 0.2em;
+    font-weight: light;
+    text-transform: uppercase;
+}
+
+#console table tr.second-level th {
+    font-weight: light !important;
+}
+
+
+#titlediv {
+  font-family: monospace;
+  text-align: center;
+  font-size:48px;
+  position:fixed;
+  width:100%;
+  height:50px;
+  color:white;
+  background-color:black;
+  padding:5px;
+  top:0px;
+  overflow-y: auto;
+}
+
+#console .table-header h1 {
+    margin: 0;
+    min-width: 156px;
+}
+
+#console .table-header {
+    margin-bottom: 0;
+}
+
+
+#console {
+  font-size:10px;
+  position:absolute;
+  width:55%;
+  height:209px;
+  color:white;
+  background-color:black;
+  padding:5px;
+  left: 835px;
+  bottom: 5px;
+  overflow-y: auto;
+  overflow: hidden;
+}
+
+#container1 {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  max-width:100%;
+  max-height:100%
+}
+
+#about {
+  display: hidden;
+}
+
+#aboutdiv {
+  text-align:right;
+  width:100px;
+  height:100px;
+  top:0px;
+  right:0px;
+  position:fixed;
+  padding:10px;
+  color: white;
+}
+
+#ccdiv {
+  text-align:right;
+  width:100px;
+  height:20px;
+  bottom:0px;
+  right:0px;
+  position:fixed;
+  padding:5px;
+  color: white;
+}
+
+#about {display:none;}
+
+/* Overlay */
+#simplemodal-overlay {background-color:#000;}
+
+/* Container */
+#simplemodal-container {height:460px; width:600px; color:#bbb; background-color:#333; border:4px solid #444; padding:12px;}
+#simplemodal-container .simplemodal-data {padding:8px;}
+#simplemodal-container code {background:#141414; border-left:3px solid #65B43D; color:#bbb; display:block; font-size:12px; margin-bottom:12px; padding:4px 6px 6px;}
+#simplemodal-container a {color:#ddd;}
+#simplemodal-container a.modalCloseImg {background:url(../img/basic/x.png) no-repeat; width:25px; height:29px; display:inline; z-index:3200; position:absolute; top:-15px; right:-16px; cursor:pointer;}
+#simplemodal-container h3 {color:#84b8d9;}
+#simplemodal-container a.modalCloseImg {
+  background:url(img/x.png) no-repeat; /* adjust url as required */
+  width:25px;
+  height:29px;
+  display:inline;
+  z-index:3200;
+  position:absolute;
+  top:-15px;
+  right:-18px;
+  cursor:pointer;
+}

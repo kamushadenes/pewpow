@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/pewpow.css">
+<link rel="stylesheet" type="text/css" href="css/flag-css.min.css">
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/d3.geo.projection.v0.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="http://datamaps.github.io/scripts/datamaps.world.min.js?v=1"></script>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/jquery.simplemodal-1.4.4.js"></script>
+
+<script>
+function about() {
+  $("#about").modal();
+}
+</script>
+
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <audio id="starwars" src="audio/Blaster-Solo.wav" preload="auto"></audio>
+  <audio id="tng" src="audio/tng_torpedo_clean.mp3" preload="auto"></audio>
+  <audio id="b5" src="audio/B5-interceptor1.wav" preload="auto"></audio>
+  <audio id="wargames" src="audio/WarGames-KeyPress.wav" preload="auto"></audio>
+  <audio id="pew" src="audio/pew.mp3" preload="auto"></audio>
+  <audio id="galaga" src="audio/shot_sound.mp3" preload="auto"></audio>
+  <audio id="asteroids" src="audio/asteroids.mp3" preload="auto"></audio>
+
+  <center><div id="container1"></div></center>
+  <div id="titlediv">HPE EBC ArcSight Attack Map</div>
+
+            <a href="https://www.hpe.com/">
+                <img id="logo" src="img/hpebox.png" alt="HPE">
+            </a>
+            <div id="info"></div>
+
+
+	    <div id="datatables">
+
+
+            <div id="attackorigin" class="data box top-left gray-bg">
+                    <div class="table-header">
+                        <h1>
+                            <span class="icon-open"></span>
+			    Attack Origins
+                        </h1>
+                    </div>
+                <div id="left-table-container" class="table-container">
+                    <table id="left-data">
+                        <colgroup>
+                            <col class="total-count" span="1">
+                            <col class="flag-label" span="1">
+                            <col class="data-label" span="1">
+                        </colgroup>
+                        <tbody><tr id="attackorigin_tbody_header">
+			    <th>#</th>
+			    <th>Flag</th>
+                            <th>Country</th>
+                        </tr>
+                    </tbody></table>
+                </div>
+            </div>
+
+            <div id="attacktype" class="data bottom-right box gray-bg">
+                    <div class="table-header">
+                        <h1 class="table-header">
+                            <span class="icon-open"></span>
+			    Target Services
+                        </h1>
+                    </div>
+
+                <div id="bottom-right-table-container">
+                    <table id="bottom-right-data">
+                        <colgroup>
+                            <col class="total-count" span="1">
+                            <col class="port-label" span="1">
+                            <col class="data-label" span="1">
+                        </colgroup>
+                        <tbody><tr id="attacktype_tbody_header">
+                            <th>#</th>
+                            <th>Port</th>
+                            <th>Service</th>
+                        </tr>
+                    </tbody></table>
+                </div>
+            </div>
+
+
+            <div id="attacktarget" class="data box top-left gray-bg">
+                    <div class="table-header">
+                        <h1>
+                            <span class="icon-open"></span>
+			    Attack Targets
+                        </h1>
+                    </div>
+                <div id="left-table-container" class="table-container">
+                    <table id="left-data">
+                        <colgroup>
+                            <col class="total-count" span="1">
+                            <col class="bar-col" span="1">
+                            <col class="data-label" span="1">
+                        </colgroup>
+                        <tbody><tr id="attacktarget_tbody_header">
+			    <th>#</th>
+			    <th>Flag</th>
+                            <th>Country</th>
+                        </tr>
+                    </tbody></table>
+                </div>
+            </div>
+
+            <div id="console" class="box gray-bg">
+                    <div class="table-header">
+                        <h1 class="table-header">
+                            <span class="icon-open"></span>
+			    Live Attacks
+                        </h1>
+                    </div>
+                <div id="console-table-container">
+                    <table id="events-data">
+                        <colgroup class="second-level">
+                            <col class="timestamp-col" span="3">
+                            <col class="attacker-org-col left-border" span="1">
+                            <col class="location-col" span="1">
+                            <col class="attacker-ip-col" span="1">
+
+                            <col class="location-col left-border" span="1">
+                            <col class="target-hostname-col" span="1">
+                            <col class="target-ip-col" span="1">
+                            <col class="service-col left-border" span="1">
+                            <col class="port-col" span="1">
+                        </colgroup>
+
+                        <tbody><tr class="first-level">
+                            <th colspan="3"></th>
+                            <th colspan="3" class="attacker">Attacker</th>
+                            <th colspan="3">Target</th>
+                            <th colspan="2">Service</th>
+                        </tr>
+
+                        <tr class="second-level">
+                            <th colspan="3">Timestamp</th>
+                            <th>Organization</th>
+                            <th>Location</th>
+                            <th>IP</th>
+                            <th>Location</th>
+                            <th>Hostname</th>
+                            <th>IP</th>
+                            <th>Service</th>
+                            <th>Port</th>
+                        </tr>
+                    </tbody></table>
+                </div>
+            </div>
+	    </div>
+
+
+
+
+  <div id="aboutdiv"><i class="fa fa-question-circle fa-2x" onClick="about();"></i></div>
+
+  <div id="ccdiv">
+	  <!-- <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a> -->
+  </div>
+
+  <div id="about">
+  <h3>About IPew</h3>
+  Attack maps are the <span style="font-family: monospace;">&lt;blink&gt;</span> tag of information security. They are pure eye candy, meant to scare the general public and <i>WOW</i> unsuspecting executives visiting Security Operations Centers. Yet, security vendors keep cranking them out. We didn't want organizations without "real" data or l33t animation skills to to feel left out, so we built this map for anyone to use [CC BY-SA]. Plus, they're all missing sound effects! And, most (all, really) use mind-numbingly dumb map projections, begging the question: <i>"Does Greenland make my map look big?"</i>.<br/>
+  <br/>
+  The default map uses a statistical model (infrequently updated) for source "attack" node country of origin &amp; frequency while destinations are fully randomized. The default sound is a Star Wars "blaster" (guess which one!). Sounds can be customized and an organization name can be specified, plus there are a few other <i>interesting</i> options.<br/>
+  <br/>
+  Check out the <a target=_blank href='http://github.com/hrbrmstr/pewpew'>github repository</a> for more information and instructions on how to customize the map options for maximum effect.<br/>
+  <br/>
+  Brought to you by <a target=_blank href="http://twitter.com/alexcpsec">@alexcpsec</a>, <a target=_blank href="http://twitter.com/hrbrmstr">@hrbrmstr</a> &amp; <a target=_blank href="http://dds.ec/blog">Data-Driven Security</a>
+  </div>
+
+  <!-- Use Hash-Bang to maintain scroll position when closing modal -->
+  <a href="#!" class="modal-close" title="Close this modal"
+      data-dismiss="modal" data-close="Close">&times;</a>
+</section>
+
+
+<script src="js/country.js"></script>
+<script src="js/pewpow.js"></script>
+
+<script>
+    start();
+</script>
+</body>
+</html>
